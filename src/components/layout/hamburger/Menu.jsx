@@ -1,6 +1,7 @@
-import cn from 'clsx'
 import styles from './Hamburger.module.scss'
 import { menu } from './menu.data'
+import cn from 'clsx'
+import { Link } from 'react-router-dom'
 
 const Menu = ({ isShow }) => {
 	const logoutHandler = () => {}
@@ -8,14 +9,13 @@ const Menu = ({ isShow }) => {
 	return (
 		<nav
 			className={cn(styles.menu, {
-				[styles.show]: isShow
+				[styles.show]: isShow,
 			})}
 		>
 			<ul>
 				{menu.map((item, index) => (
 					<li key={`_menu_${index}`}>
-						{item.title}
-						{/* <Link to={item.link}>{item.title}</Link> */}
+						<Link to={item.link}>{item.title}</Link>
 					</li>
 				))}
 				<li>
